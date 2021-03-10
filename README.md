@@ -22,6 +22,11 @@ $ composer require mediagone/types-france
 
 All value objects implement a common `ValueObject` interface and `JsonSerializable`. 
 
+### Business
+- `Nic`
+- `Siren`
+- `Siret`
+
 
 ## License
 
