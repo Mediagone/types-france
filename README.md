@@ -26,6 +26,7 @@ All value objects implement a common `ValueObject` interface and `JsonSerializab
 - `Nic`
 - `Siren`
 - `Siret`
+- `Tva` (FR only)
 
 ### Geo
 - `PostalCode`

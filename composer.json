@@ -2,7 +2,7 @@
     "name": "mediagone/types-france",
     "type": "library",
     "description": "A collection of Value Objects, specific to France.",
-    "keywords": ["value objects", "ddd", "type", "france", "siret", "postal code"],
+    "keywords": ["value objects", "ddd", "type", "france", "siret", "postal code", "tva"],
     "license": "MIT",
     "authors": [
         {"name": "Bruce Suire"}
