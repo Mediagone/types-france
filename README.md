@@ -27,6 +27,9 @@ All value objects implement a common `ValueObject` interface and `JsonSerializab
 - `Siren`
 - `Siret`
 
+### Geo
+- `PostalCode`
+
 
 ## License
 
