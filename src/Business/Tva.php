@@ -7,6 +7,7 @@ use Mediagone\Types\Common\Geo\Country;
 use Mediagone\Types\Common\ValueObject;
 use function is_string;
 use function preg_match;
+use function str_pad;
 use function substr;
 
 
@@ -66,8 +67,8 @@ final class Tva implements ValueObject
     
     public static function fromSiren(Siren $siren) : self
     {
-        $sirenNumber = (int)(string)$siren;
-        $key = (12 + 3 * ($sirenNumber % 97)) % 97;
+        $sirenNumber = (string)$siren;
+        $key = self::computeKey($sirenNumber);
         
         return new self("FR$key$sirenNumber");
     }
@@ -127,13 +128,20 @@ final class Tva implements ValueObject
     // Helper Methods
     //========================================================================================================
     
+    private static function computeKey(string $siren) : string
+    {
+        $key = (string)((12 + 3 * ((int)$siren % 97)) % 97);
+        
+        return str_pad($key, 2, '0', STR_PAD_LEFT);
+    }
+    
+    
     private static function checkKey(string $tva) : bool
     {
         $key = substr($tva, 2, 2);
         $siren = substr($tva, 4, 9);
-        $computedKey = (12 + 3 * ($siren % 97)) % 97;
         
-        return $key === (string)$computedKey;
+        return $key === self::computeKey($siren);
     }
     
     

@@ -38,6 +38,13 @@ final class TvaTest extends TestCase
     }
     
     
+    public function test_single_digit_key_is_padded() : void
+    {
+        $siren = Siren::fromString('637293879');
+        self::assertSame('FR09637293879', (string)Tva::fromSiren($siren));
+    }
+    
+    
     public function test_can_be_created_from_siret() : void
     {
         $siret = Siret::fromString('52324793012345');
